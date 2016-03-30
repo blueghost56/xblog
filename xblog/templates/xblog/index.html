@@ -1,0 +1,109 @@
+{% extends 'xblog/base.html' %}
+
+{% block title %}
+ 博客
+{% endblock %}
+
+{% block style %}
+ <style>
+     .xmain{
+         display: flex;
+        
+     }
+     .xsidebar{
+         padding:8px;
+         background-color:#ccc;
+         width: 250px;
+     }
+     .xpanel{
+         margin-left: 5em;
+     }
+ </style>
+{% endblock %}
+
+{% block main %}
+ 
+<nav class="navbar navbar-default" role="navigation">
+   <div class="navbar-header">
+     <a class="navbar-brand" href="#">Xblog</a>
+   </div>
+   <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      {% for item in navs %}
+      <li><a href="{{item.linkUrl}}">{{ item.categoryName }}</a></li>
+      {% endfor %}
+    </ul>
+    <p class="navbar-text navbar-right"><a href="admin/" class="navbar-link">进入后台</a></p>
+     </div>
+   
+ </nav>
+
+ <!-- main -->
+<div class="container xmain">
+<!-- start sidebar -->
+<div class="xsidebar">
+  <ul class="nav nav-list bs-docs-sidenav affix-top">
+	<li class="active">
+	<a href="#overview"><i class="icon-chevron-right"></i> 概览</a>
+	</li>
+	<li class="">
+	<a href="#transitions"><i class="icon-chevron-right"></i> 过渡效果</a>
+	</li>
+	<li class="">
+	<a href="#modals"><i class="icon-chevron-right"></i> 模态对话框</a>
+	</li>
+	<li class="">
+	<a href="#dropdowns"><i class="icon-chevron-right"></i> 下拉菜单</a>
+	</li>
+	<li>
+	<a href="#scrollspy"><i class="icon-chevron-right"></i> 滚动监听</a>
+	</li>
+	<li class="">
+	<a href="#tabs"><i class="icon-chevron-right"></i> 标签页</a>
+	</li>
+	<li class="">
+	<a href="#tooltips"><i class="icon-chevron-right"></i> 工具提示</a>
+	</li>
+	<li class="">
+	<a href="#popovers"><i class="icon-chevron-right"></i> 弹出提示</a>
+	</li>
+	<li class="">
+	<a href="#alerts"><i class="icon-chevron-right"></i> 警告框</a>
+	</li>
+	<li class="">
+	<a href="#buttons"><i class="icon-chevron-right"></i> 按钮</a>
+	</li>
+	<li class="">
+	<a href="#collapse"><i class="icon-chevron-right"></i> Collapse</a>
+	</li>
+	<li class="">
+	<a href="#carousel"><i class="icon-chevron-right"></i> 轮播</a>
+	</li>
+	<li class="">
+	<a href="#typeahead"><i class="icon-chevron-right"></i> 输入提示</a>
+	</li>
+	<li class="">
+	<a href="#affix"><i class="icon-chevron-right"></i> 附加导航</a>
+	</li>
+	</ul>
+
+</div>
+<!-- end sidebar -->
+    
+ <div class="xpanel">
+ {% for item in news %}
+  <div class="panel panel-primary">
+   <div class="panel-heading">
+    {{ item.title }}{{ item.publishDate }}
+   </div>
+   <div class="panel-body">
+    {{ item.content }}
+   </div>
+  </div>
+ {% endfor %}
+</div>
+
+    
+{% endblock %}
+
+
